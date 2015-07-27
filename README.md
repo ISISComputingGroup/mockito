@@ -7,12 +7,10 @@ To use this project to generate a P2 site for Mockito it is necessary to downloa
 https://code.google.com/p/mockito/downloads/list and insert it into the build.
 
 Steps:
-
-    * In Eclipse expand the org.mockito plug-in
-    * Right-click on the plug-in and select "Import..."
-    * Select General->Archive File and click "Next"
-    * Browse to the downloaded JAR and click "Finish"
-    * This should import all the necessary files
+    * In Eclipse, right-click on the org.mockito plug-in and select delete and DO NOT select "Delete project contents on disk."
+    * Select New->Other->Plug-in Development->Plug-in from Existing JAR Archives
+    * Select "Add External..." and choose the downloaded JAR
+    * Enter org.mockito as the project name
     
 To build the P2 site, run the build.bat file from the command line.
 The P2 site files are located in \org.mockito.p2\target\repository\
