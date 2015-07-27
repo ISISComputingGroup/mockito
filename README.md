@@ -4,7 +4,7 @@ A Tycho project for building a P2 site for Mockito
 As Mockito and its dependencies have a different licence to IBEX, we cannot include it in our build.
 
 To use this project to generate a P2 site for Mockito it is necessary to download the Mockito JAR from
-https://code.google.com/p/mockito/downloads/list and insert them into the build.
+https://code.google.com/p/mockito/downloads/list and insert it into the build.
 
 Steps:
 
