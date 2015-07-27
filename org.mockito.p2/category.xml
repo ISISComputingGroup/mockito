@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.mockito.feature_1.9.5.qualifier.jar" id="org.mockito.feature" version="1.9.5.qualifier"/>
+   <category-def name="mockito" label="Mockito"/>
+</site>

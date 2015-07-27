@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mockito</groupId>
+  <artifactId>org.mockito.parent</artifactId>
+  <version>1.9.5-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <properties>
+		<tycho.version>0.20.0</tycho.version>
+		<tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
+		<kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url>
+		<kepler-updates-repo.url>http://download.eclipse.org/eclipse/updates/3.8</kepler-updates-repo.url>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>kepler-updates</id>
+			<layout>p2</layout>
+			<url>${kepler-updates-repo.url}</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					
+					<target>
+						<artifact>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<version>${project.version}</version>
+							<classifier>../org.mockito.parent/org.mockito.parent</classifier>
+						</artifact>
+					</target>
+					<!-- <environments> <environment> <os>win32</os> <ws>win32</ws> <arch>x86_64</arch> 
+						</environment> </environments> -->
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<strictBinIncludes>false</strictBinIncludes>
+					<format>yyyyMMdd-HHmm</format>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<compilerArgument>-err:-forbidden</compilerArgument>
+				</configuration>
+			</plugin>
+
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.eclipse.tycho</groupId>
+										<artifactId>
+											tycho-packaging-plugin
+										</artifactId>
+										<versionRange>
+											[0.20.0,)
+										</versionRange>
+										<goals>
+											<goal>validate-version</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+  
+  
+  <modules>
+  	<module>../org.mockito</module>
+  	<module>../org.mockito.feature</module>
+  	<module>../org.mockito.p2</module>
+  </modules>
+</project>
